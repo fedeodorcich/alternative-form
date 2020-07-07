@@ -108,18 +108,7 @@
     <h2>Encuesta COVID-19</h2>
 
 
-    <!--div class="col-md-12" id="1">
-      <label > ¿Tiene fiebre(37.5 o mas)?</label>
-      <div class="form-check">
-      <label class="form-check-label" for="si1">
-      <input id="si1" class="form-check-input" name="respuesta0 " type="radio" value="1" required="">si</label>
-      </div>
-      <div class="form-check">
-      <label class="form-check-label" for="no2">
-        <input id="no2" class="form-check-input" name="respuesta0 " type="radio" value="2" required="">no</label>
-      </div>
-     </div-->
-
+    
     <div>
       <label>¿Tiene fiebre(37.5 o mas)?</label>
       <div>

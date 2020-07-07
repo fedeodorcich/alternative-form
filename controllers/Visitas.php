@@ -316,7 +316,7 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 			$response->destinoEmail = $this->input->post('email');
 
 			// indica el estado del email, si es true, el email se envió correctamente
-			//$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable,$codeFile);
+			$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable,$codeFile);
 
 			// se devuelve el código generado
 			//$response->data = $codigo;

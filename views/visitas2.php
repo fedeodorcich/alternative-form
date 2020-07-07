@@ -643,8 +643,8 @@ input[type=number]::-webkit-outer-spin-button {
     $("#tabla_cuerpo input").prop('disabled',false);
     // iteración que carga la tabla con los horarios y visitas disponibles en la tabla de particulares
    // console.log(visitasHoyParticular[0].hora_visita.replace(':','_'))
-    let tipo = 1;
-    if(tipo){
+    //let tipo = 0;
+    //if(tipo){
     for(i = 0; i < visitasHoyParticular.length; i++){
      hora = visitasHoyParticular[i].hora_visita.replace(':','_');
      if(parseInt(visitasHoyParticular[i].cantidad_disponible) < parseInt(visitantesMaximo)  && parseInt(visitasHoyParticular[i].cantidad_disponible) > 0 ){
@@ -657,10 +657,9 @@ input[type=number]::-webkit-outer-spin-button {
 
    
   }
-}
+//}
 
-else {
-
+/*
     
 
   for(i = 0; i < visitasHoyParticular.length; i++){
@@ -671,7 +670,7 @@ else {
     console.log('Hora 3: '+hora3[0])
 
     var hh = hora3[0];
-    var mm = hora3[1];
+    var mm = hora3[];
     var c=hh;
 
     if(mm == 30){
@@ -699,7 +698,7 @@ else {
     }
 
 }
-}
+}*/
 
 
 

@@ -2,7 +2,8 @@
  // $("#1").hide();
 
  // se ocultan los bloques no necesarios al inicio
-/* $("#p3").hide();
+ $("#p2").hide();
+ $("#p3").hide();
  $("#p4").hide();
  $("#p5").hide();
  $('#p5b').hide();
@@ -14,7 +15,7 @@
  $("#paso_camino_particular4").hide();
  $("#paso_camino_particular5").hide();
  $("#paso_camino_particular6").hide();
- $("#paso_camino_particular7").hide();*/
+ $("#paso_camino_particular7").hide();
 
 
  // accion al confirmar el día y hora de visita
@@ -372,6 +373,7 @@ $("#numero_visitantes").change(function(){
 
       if(!ocultar){
         $("#p5").show('slow');
+        $('#p5b').hide('slow')
       }
       
       $("#btn_listo_listado_visitantes").show();
@@ -382,24 +384,7 @@ $("#numero_visitantes").change(function(){
       $("#paso_camino_particular7").show('slow');
     
     }else{  
-        //Si antes habia mas de 6 se debe crear todo
-        /*for(i = 0; i < cantidad; i++){
-          fila = $("#carga_visitantes .row:first-child").clone();
-
-          if(nro == '')
-            nro = parseInt(fila.find('.nro_visitante').text().trim().replace('.','')) + 1;
-          else nro++;
-
-          fila.attr('id','visitante_'+nro);
-
-          fila.find('.nro_visitante').text(nro);
-          $("#carga_visitantes").append(fila);
-          $("#visitante_"+nro+' .wrapper .datos_visitante').val('');
-          $("#visitante_"+nro+' .wrapper input[type=checkbox]').prop('checked',false);
-        }
-
-        $('#p5').show('slow');
-        $("#p5b").hide('slow');*/
+        
         generarFilas(cantidad);
       
     }
@@ -423,25 +408,8 @@ $("#numero_visitantes").change(function(){
 
        }
         else {
-          // Si antes habia mas de 6 se debe crear todo
-        /*for(i = 0; i < cantidad; i++){
-          fila = $("#carga_visitantes .row:first-child").clone();
-
-          if(nro == '')
-            nro = parseInt(fila.find('.nro_visitante').text().trim().replace('.','')) + 1;
-          else nro++;
-
-          fila.attr('id','visitante_'+nro);
-
-          fila.find('.nro_visitante').text(nro);
-          $("#carga_visitantes").append(fila);
-          $("#visitante_"+nro+' .wrapper .datos_visitante').val('');
-          $("#visitante_"+nro+' .wrapper input[type=checkbox]').prop('checked',false);
-        }
-
-        $('#p5').show('slow');
-        $("#p5b").hide('slow');*/
         generarFilas(cantidad);
+
     }
 
     ant =  $("#carga_visitantes .row").length;
@@ -460,6 +428,9 @@ $("#numero_visitantes").change(function(){
   //Solo tiene responsable, salta a paso 6
    $("#p5").hide('slow');
    $("#p5b").hide('slow');
+   if(!ocultar){
+    $('#p6').show('slow');
+   }
  }
  
 }
