@@ -33,7 +33,7 @@ class Model_Visitas extends CI_Model {
 	}
 
 
-	/*function validarVisita($data,$visitantesMaximo){
+	function validarVisita($data,$visitantesMaximo){
 		$query = "
 		SELECT COUNT(*) cantidad_disponible
 		FROM personas p
@@ -41,27 +41,6 @@ class Model_Visitas extends CI_Model {
 		";
 
 		$result = $this->db->query($query)->row();
-
-		return $result;
-	}*/
-
-	
-
-	function validarVisita($data,$visitantesMaximo){
-		$query = "
-		SELECT 
-		(SELECT COUNT(*)
-		FROM personas_particular p
-		WHERE p.fecha_visita = '".$data['fecha_visita']."' AND p.hora_visita = '".$data['hora_visita']."')
-		+
-		(SELECT COUNT(*)
-		FROM personas_institucion i
-		WHERE i.fecha_visita = '".$data['fecha_visita']."' AND i.hora_visita = '".$data['hora_visita']."')
-		AS cantidad_disponible
-		";
-
-		$result = $this->db->query($query)->row();
-		//var_dump($result);
 
 		return $result;
 	}

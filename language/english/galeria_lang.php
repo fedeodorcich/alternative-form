@@ -1,4 +1,4 @@
 <?php
-  $lang['galeria_subtitle'] = "Our";
-  $lang['galeria_title'] = "gallery";
+  $lang['galeria_subtitle'] = "Nuestra";
+  $lang['galeria_title'] = "galería";
 ?>

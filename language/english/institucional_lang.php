@@ -1,58 +1,58 @@
 <?php
  
 $lang['institucional_subtitle'] = "Anchipurac";
-$lang['institucional_title'] = "Institutional";
-$lang['institucional_text'] = "Imagining and shaping a sustainable future is a present task. Anchipurac (“Lighting” in Huarpe) is an educational proposal which aims to encourage citizens to adopt a lifestyle which considers both the present and the future generations.  Sharing experience and knowledge is the key to achieve this purpose.";
+$lang['institucional_title'] = "Institucional";
+$lang['institucional_text'] = "Imaginar y forjar un futuro sustentable es una tarea del presente. Anchipurac (“Rayo” en voz huarpe) es una propuesta educativa que tiene entre sus propósitos motivar a los ciudadanos a través de la experiencia y el conocimiento a adoptar un estilo de vida pensando en las generaciones del hoy y del mañana.";
 
-$lang['objetivos_title'] = "objectives";
-$lang['objetivos_text01'] = "To create a public institution based on research and education, committed to the environmental quality in the Province of San Juan, focused on collaborating with the sociocultural transformation of the population by producing substantial changes in the environmental behavior.";
-$lang['objetivos_text02'] = "To develop theoretical, technical and educational content favoring cultural promotion and tourist attraction.";
-$lang['objetivos_text03'] = "To build a research space and an environmental technological observatory based on the accumulation of experiences, research and monitoring of urban solid waste, as well as the new technologies used for urban solid waste and its final disposal in the world.";
-$lang['objetivos_text04'] = "To develop a platform of knowledge aiming to the promotion of information and scientific advances with the purpose of creating a regional node for environmental training.";
-$lang['objetivos_text05'] = "To promote the use of renewable energies in public and private buildings, with the purpose of reducing the consumption of fossil fuels, cutting the environmental pollution, and achieving a positive impact regarding energy saving.";
-$lang['objetivos_text06'] = "To establish a direct contact with the population; academic, public and private entities; government areas; and other institutions related to environmental issues to drive and promote didactic, educational and recreational circuits.";
+$lang['objetivos_title'] = "objetivos";
+$lang['objetivos_text01'] = "Formar una institución pública sustentada en la investigación y educación comprometida con la calidad ambiental de la provincia de San Juan, capaz de contribuir con los procesos de transformación sociocultural de los ciudadanos, mediante cambios sustanciales en las conductas ambientales.";
+$lang['objetivos_text02'] = "Desarrollar contenidos teóricos, técnicos y didácticos que permitan la divulgación cultural y atracción turística.";
+$lang['objetivos_text03'] = "Instituir un espacio de investigación y observatorio tecnológico ambiental, de acumulación de experiencias, estudios y seguimientos sobre los residuos sólidos urbanos y sus nuevas tecnologías de aprovechamiento y disposición final en el mundo.";
+$lang['objetivos_text04'] = "Generar una plataforma de conocimiento que facilite la difusión de información y avances científicos, a fin de construir un nodo regional para la capacitación ambiental.";
+$lang['objetivos_text05'] = "Promover el uso de energías renovables en las construcciones públicas y privadas, con el fin de disminuir el consumo de energías fósiles, reducir la contaminación ambiental y generar un impacto positivo en el ahorro energético.";
+$lang['objetivos_text06'] = "Lograr una vinculación directa con la población, con entes académicos, públicos y privados, áreas de Gobierno y otras Instituciones, relacionados con la temática ambiental, a fin de impulsar y promocionar los circuitos didácticos, educativos y recreativos.";
 
-$lang['equipo_title'] = "team";
-$lang['equipo_text'] = "The Anchipurac Environmental Center is an institution which depends on the Secretary of Environmental State and Sustainable Development, Government of San Juan. This Center has professionals of different areas, working in an interdisciplinary way, committed to the environmental education and the sustainable development, with the purpose of sharing a unique experience with visitors.";
+$lang['equipo_title'] = "equipo";
+$lang['equipo_text'] = "El Centro Ambiental Anchipurac es una institución dependiente de la Secretaría de Estado de Ambiente y Desarrollo Sustentable, del Gobierno de la Provincia de San Juan. Este Centro  cuenta con profesionales de diversas áreas que trabajan de manera interdisciplinaria, comprometidos con la educación ambiental y el desarrollo sustentable, con el fin de ofrecer a los visitantes una experiencia única.";
 
 
 
-$lang['equipo_cargo01'] = "Secretary of Environmental State and Sustainable Development";
-$lang['equipo_sec'] = "Secretary:";
-$lang['equipo_cargo02'] = "Anchipurac Environmental Center";
-$lang['equipo_dir'] = "Director: Architect";
-$lang['equipo_cargo03'] = "Environmental Observatory";
+$lang['equipo_cargo01'] = "Secretaría de Estado de Ambiente y Desarrollo Sustentable";
+$lang['equipo_sec'] = "Secretario:";
+$lang['equipo_cargo02'] = "Centro Ambiental Anchipurac";
+$lang['equipo_dir'] = "Directora: Arquitecta";
+$lang['equipo_cargo03'] = "Observatorio Ambiental";
 $lang['equipo_dir2'] = "Director:";
 
 
 
-$lang['edificio_subtitle'] = "Our";
-$lang['edificio_title'] = "building";
-$lang['edificio_text01'] = "The Anchipurac Environmental Center is located at the foot of the Parkinson hill, in the characteristic desert of San Juan, <strong>where the largest garbage dump of the province was previously located.</strong>";
-$lang['edificio_text02'] = "The location is strategically designed to <strong>invite visitors to an environment away from the urbanization</strong>, in contact with the aridity and the mountains, immersed in the true natural landscape.";
-$lang['edificio_text03'] = "The facade of the building evokes the facets of the mountain; breaking with right angles and adopting inclined positions. On the other hand, the interior simulates gullies, and characteristic water cracks of the soil in San Juan. <strong>The construction method was adopted considering the role of the institution</strong>, which seeks to create and promote culture and environmental education, apart from working on the study and research in pursuit of sustainable development.";
-$lang['edificio_text04'] = "<strong>The building is considered an icon of bioclimatic design and sustainable architecture</strong> in the country. 40% of the construction is built below grade and more than 2 meters deep. This condition is strategic to take advantage of the natural temperature of the earth: cool in summer and warm in winter.";
-$lang['edificio_text05'] = "Furthermore, Anchipurac is designed to use the light and heat of the sun depending on the different seasons of the year. It also uses clean and renewable energies, solar photovoltaic and geothermal water. It has noble materials of low maintenance costs and long durability over time. It reuses gray water and has insulation on floors, ceilings and walls to maintain the well-balanced indoor temperature.";
+$lang['edificio_subtitle'] = "Nuestro";
+$lang['edificio_title'] = "edificio";
+$lang['edificio_text01'] = "El Centro Ambiental Anchipurac está emplazado al pie del cerro Parkinson, en el característico desierto sanjuanino, <strong>donde antes existía el mayor basural de la provincia.</strong>";
+$lang['edificio_text02'] = "Su localización está estratégicamente pensada para <strong>imbuir al visitante en un ambiente alejado de la urbanización</strong>, en contacto con la aridez y la montaña, remitiendo al verdadero paisaje natural.";
+$lang['edificio_text03'] = "La fachada del edificio evoca las facetas de la montaña; rompe con los ángulos rectos y adopta planos inclinados. Mientras que su interior simula las cárcavas, grietas que el agua deja en el suelo sanjuanino. <strong>La forma de la construcción complementa la función que cumple la institución</strong>, que busca crear y promover cultura y educación ambiental, además de dedicarse al estudio y la investigación en pos del desarrollo sustentable.";
+$lang['edificio_text04'] = "<strong>El edificio es un ícono del diseño bioclimático y la arquitectura sustentable</strong> en el país. El 40% de la construcción se encuentra por debajo del nivel del terreno natural y a más de 2 metros de profundidad. Esto permite que el edificio se beneficie con la temperatura de la tierra, obteniendo frío en verano y calor en invierno.";
+$lang['edificio_text05'] = "Además, Anchipurac está diseñado para aprovechar la luz y el calor del sol en función de las diferentes estaciones del año. Utiliza energías limpias y renovables, la solar fotovoltaica y la geotérmica por agua. Cuenta con materiales nobles que requieren bajos costos de mantenimiento y larga durabilidad en el tiempo. Reutiliza las aguas grises y cuenta con aislantes en pisos, techos y muros para conservar la temperatura deseada en los interiores. ";
 
 
-$lang['investigacion_subtitle'] = "Environmental Laboratory and Observatory";
-$lang['investigacion_title'] = "RESEARCH";
-$lang['investigacion_text01'] = "In Anchipurac Environmental Center, the Laboratory and the Environmental Observatory undertake different activities.";
-$lang['investigacion_text02'] = "The <strong>laboratory</strong> works on technological innovation projects related to renewable energies and on the use of waste as raw material to produce new materials. ";
-$lang['investigacion_text03'] = "The <strong>observatory</strong> is in charge of characterizing, evaluating and monitoring the key environmental aspects of the province. <br>It is divided into three important areas:";
-$lang['investigacion_cards_card01_title'] = "Environmental Monitoring Center";
-$lang['investigacion_cards_card01_text'] = "It is in charge of gathering data related to the natural resources in the province, air, water and soil";
-$lang['investigacion_cards_card02_title'] = "Climate Change Agency";
-$lang['investigacion_cards_card02_text'] = "It works with actors from public and private sectors and defines strategies in relation to climate change.";
-$lang['investigacion_cards_card03_title'] = "Urban Solid Waste Observatory";
-$lang['investigacion_cards_card03_text'] = "It researches and introduces innovations in the management of Urban Solid Waste.";
+$lang['investigacion_subtitle'] = "Laboratorio y Observatorio Ambiental";
+$lang['investigacion_title'] = "investigación";
+$lang['investigacion_text01'] = "En el Centro Ambiental Anchipurac desarrollan su actividad el Laboratorio y el Observatorio Ambiental.";
+$lang['investigacion_text02'] = "El <strong>laboratorio</strong> trabaja en proyectos de innovación tecnológica en el campo de las energías renovables y en el uso de residuos como materia prima para generar nuevos materiales. ";
+$lang['investigacion_text03'] = "El <strong>observatorio</strong> se ocupa de caracterizar, evaluar y monitorear los aspectos ambientales claves de la provincia. <br>Está integrado por:";
+$lang['investigacion_cards_card01_title'] = "Centro de Monitoreo Ambiental";
+$lang['investigacion_cards_card01_text'] = "Recopila datos relacionados con los recursos naturales de la provincia, aire, agua  y suelo.";
+$lang['investigacion_cards_card02_title'] = "Agencia de Cambio Climático";
+$lang['investigacion_cards_card02_text'] = "Nuclea a actores del sector público y privado y define estrategias en relación al cambio climático.";
+$lang['investigacion_cards_card03_title'] = "Observatorio de Residuos Sólidos Urbanos";
+$lang['investigacion_cards_card03_text'] = "Investiga y aplica innovaciones en la gestión de los mismos.";
 
-$lang['complejo_subtitle'] = "Environmental Development Area";
-$lang['complejo_title'] = "san juan environmental complex";
-$lang['complejo_text01'] = "San Juan Environmental Complex takes place where the largest garbage dump of the province was located before. It is an area founded on the basis of the circular economy, which promotes the application of new technologies for environmental management and waste disposal, research, education and industrial production.";
-$lang['complejo_text02'] = "The complex is located at the foot of the Sierra Chica hill, in Rivadavia, and it is formed by Anchipurac Environmental Center, Environmental Park of Technologies (PTA) and the Regional Environmental Technological Industrial Park (PITAR).";
-$lang['complejo_text03'] = "The <strong>Environmental Technologies Park</strong> receives transports with Urban Solid Waste, assimilable 24 hours a day, 365 days a year. Urban Solid Waste comes from the private sector and from nine municipalities with a large population. The waste is separated, classified and recovered for recycling or disposed in a sanitary landfill.";
-$lang['complejo_text04'] = "The <strong>Regional Environmental Technological Industrial Park</strong> is under development. It is a sustainable park in which public and private industries will be installed to process recovered waste. Electronic waste, batteries, rubber, paper, cardboard and plastic, among others will be used as raw material.";
+$lang['complejo_subtitle'] = "Un polo de desarrollo ambiental";
+$lang['complejo_title'] = "complejo ambiental san juan";
+$lang['complejo_text01'] = "Donde antes existía el basural más grande de la provincia, hoy crece el Complejo Ambiental San Juan. Es un polo fundado en las bases de la economía circular, que promueve la aplicación de nuevas tecnologías para la gestión ambiental y disposición de residuos, la investigación, la educación y la producción industrial.";
+$lang['complejo_text02'] = "El complejo está ubicado al pie de la Sierra Chica, en Rivadavia, y está formado por el Centro Ambiental Anchipurac, el Parque de Tecnologías Ambientales (PTA) y el Parque Industrial Tecnológico Ambiental Regional (PITAR). ";
+$lang['complejo_text03'] = "El <strong>Parque de Tecnologías Ambientales</strong> recibe transportes con Residuos Sólidos Urbanos (RSU) y asimilables las 24 horas de los 365 días del año. Los RSU provienen del sector privado y de nueve municipios con gran concentración de población. Aquí los residuos son separados, clasificados y recuperados para reciclaje o dispuestos como relleno sanitario.";
+$lang['complejo_text04'] = "El <strong>Parque Industrial Tecnológico Ambiental Regional</strong> se encuentra en desarrollo. Se trata de un parque sustentable en el que se instalan industrias públicas y privadas que procesarán residuos recuperados. Utilizarán como materia prima desechos electrónicos, de pilas y baterías, caucho, papel, cartón y plástico, entre otros.";
 
 
 

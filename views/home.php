@@ -2,10 +2,10 @@
   <video autoplay loop muted >
     <source src="assets/video/video.mp4" type="video/mp4" >
     </video>
-    <div class="banner-home" >
+    <div class="banner-home">
       <a href="<?=base_url('visitas')?>">
         <!-- <center> -->
-          <img  src="<?=base_url('assets/img/home/banner_ticket_bco-01.svg')?>" style="width: 40%" >
+          <img  src="<?=base_url('assets/img/home/banner_ticket_bco-01.svg')?>" style="width: 30%;" >
           <!-- </center> -->
         </a>
       </div>
@@ -95,113 +95,26 @@
 <?php } */?>
 <!--END OCULTA NOTICIAS-->
 
-
-
 <!--PARA EVENTO-->
-
-<div class="contenedor" id="descargas" style="width: 50%; text-align: center; align-content: center; margin: auto;">
-  <div style="display: grid; grid-template-columns: auto auto;">
-    <div id="div-ev3" style="margin: 5px; padding: 5px;">
-      <a href="<?=base_url('assets/folletos/FOLLETO 071.jpg')?>" download="folleto1.jpg"><h2 class="descarga" style="color: white;">Descargar Recorrido Exterior</h2></a>
-    </div>
-    <div id="div-ev3" style="margin: 5px; padding: 5px;">
-      <a href="<?=base_url('assets/folletos/FOLLETO 072.jpg')?>" download="folleto2.jpg"><h2 class="descarga" style="color: white;">Descargar Folleto Número 2</h2></a>
-    </div>
-  </div>
-  <br>
-</div>
 
 <div class='contenedor' style="padding: 0; align-items: center; margin: auto;">
 
-  <!--div class="grid-tres-columnas" style="grid-gap: 0px; width:100%; margin:auto;">
-
-    <div class="wrapper abs-center" id="div-ev1">
-      <img src="<?=base_url('assets/img/evento/logo2.png')?>" alt="MVA"></a>
-    </div>
-
-    <div class="wrapper" id="div-ev2">
-      <div id="div-vert"></div>
-        <h5 class="abs-center" style="color: #707070; font-size: 1.5rem; margin-top: 10%; margin-bottom: 10%; text-align: center;">Ya podes ingresar a votar las diferentes obras</h5>
-        
-    </div>
-
-    <div class="wrapper abs-center" id="div-ev3">
-
-        <a id="link-evento" style="display: inline-block;" href ='https://anchipurac.com/app-mva2/'>
-          <h5 id="link">Ingresar</h5>
-        </a>
-
-    </div>
-
-</div-->
-
-<br>
 
 <div class="grid-tres-columnas" style="grid-gap: 0px; width:100%; margin:auto;">
 
     <div class="wrapper abs-center" id="div-ev1">
-       <h5 class="abs-center" style="color: #707070; font-size: 1.6rem; text-align: center;"><span>Entrar al <br> <b>Parque Escultórico</b></h5>
+       <a href="https://anchipurac.com/mva/"> <img src="<?=base_url('assets/img/evento/logo.png')?>" alt="MVA"></a>
     </div>
 
     <div class="wrapper" id="div-ev2">
-      <div id="div-vert"></div>
-        <h5 class="fecha-event" style="font-size: 1.5rem; margin-top: 5%; margin-bottom: 10%;">Conoce las obras del Parque Escultórico Anchipurac</h5>
+      <!--div id="div-vert"></div-->
+        <h5 class="fecha-event" style="font-size: 30px"><b>09/06</b><br> <span style="font-style:italic;font-weight:lighter;">hasta</span> <br><b>08/07</b></h5>
     </div>
 
     <div class="wrapper abs-center" id="div-ev3">
 
-        <a id="link-evento" style="display: inline-block;" href ='https://anchipurac.com/mva/'>
-          <h5 id="link">Ingresa<br>Acá</h5>
-        </a>
-
-    </div>
-
-</div>
-
-<!--==================================================-->
-
-<br>
-
-<div class="grid-tres-columnas" style="grid-gap: 0px; width:100%; margin:auto;">
-
-    <div class="wrapper abs-center" id="div-ev1">
-       <h5 class="abs-center" style="color: #707070; font-size: 1.6rem; text-align: center;"><span>Foro Provincial <br> <b>"Hacia un Futuro Sustentable"</b></h5>
-    </div>
-
-    <div class="wrapper " id="div-ev2">
-      <div id="div-vert"></div>
-        
-           <h5 class="fecha-event" style="font-size: 1.3rem"><b>07/09</b><br> <span style="font-style:italic; font-weight:lighter;">hasta</span> <br><b>25/09</b></h5>
-           <a href="<?= base_url('assets/documento/Foro1.pdf')?>" target="_blank">
-          <p id="bases" class="abs-center"style="color: #707070; font-size: 1.2rem; text-align: center; margin-top: 5px"><strong><u>Más información</u></strong></p></a>
-    </div>
-
-    <div class="wrapper abs-center" id="div-ev3">
-
-        <a id="link-evento" target="_blank" style="display: inline-block;" href ='https://docs.google.com/forms/d/e/1FAIpQLScaeR6UbA7llAe0qZnjKq2pxuFUOw7419jVgYaEIQZMcVzVZg/viewform'>
-          <h5 id="link">Inscribite</h5>
-        </a>
-
-    </div>
-
-</div>
-<br>
-
-<div class="grid-tres-columnas" style="grid-gap: 0px; width:100%; margin:auto;">
-
-    <div class="wrapper abs-center" id="div-ev1">
-       <h5 class="abs-center" style="color: #707070; font-size: 1.6rem; text-align: center;"><strong>Ya podés participar en los ODS</strong></h5>
-    </div>
-
-    <div class="wrapper" id="div-ev2">
-      <div id="div-vert"></div>
-        <h5 class="fecha-event" style="font-size: 1.5rem; margin-top: 5%; margin-bottom: 10%;">¿Qué sabe el ciudadano acerca de los ODS?</h5>
-    </div>
-
-    <div class="wrapper abs-center" id="div-ev3">
-
-        <a id="link-evento" target="_blank" style="display: inline-block;" href ='https://docs.google.com/forms/d/e/1FAIpQLSfXR2MAc9yhz_mjO3lIjU4yZSyxyvs9VJDDdZ2opAACeCeYQw/viewform'>
-          <h5 id="link">Dejanos tu<br>respuesta</h5>
+        <a id="link-evento" style="display: inline-block;" href ='https://docs.google.com/forms/d/e/1FAIpQLSeRmsRGMmCYV4Lgv_CfSHfp2tSQGetPlUSmw39HvRi1NMoHwQ/viewform?vc=0&c=0&w=1'>
+          <h5 id="link">Inscribite<br>Aquí</h5>
         </a>
 
     </div>
@@ -213,12 +126,12 @@
 <div class="grid-tres-columnas" style="grid-gap: 0px; width:100%; margin:auto;">
 
     <div class="wrapper abs-center" id="div-ev1">
-       <h5 class="abs-center" style="color: #707070; font-size: 1.6rem; text-align: center;">CUENTOS AMBIENTALES <br>ANCHIPURAC</h5>
+       <h5 class="abs-center" style="color: #707070; font-size: 1.7rem; text-align: center;">CUENTOS AMBIENTALES <br>ANCHIPURAC</h5>
     </div>
 
     <div class="wrapper " id="div-ev2">
       <div id="div-vert"></div>
-        <a href="<?= base_url('assets/documento/Bases y condiciones Convocatoria Abierta 2020 Anchipurac Cuentos Ambientales.pdf')?>" target="_blank">
+        <a href="<?= base_url('assets/documento/Bases y condiciones Convocatoria Abierta 2020 Anchipurac Cuentos Ambientales.pdf')?>">
           <h5 id="bases" class="abs-center"style="color: #707070; font-size: 25px; text-align: center; margin-top: 10%; margin-bottom: 10%;">Bases y Condiciones</h5>
         </a>
     </div>
@@ -232,8 +145,6 @@
     </div>
 
 </div>
-
-
 
 <!--=======================================================-->
 

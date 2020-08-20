@@ -1,5 +1,5 @@
 <?php
-  $lang['avales_subtitle'] = "Credits ";
-  $lang['avales_title'] = "institutional ";
+  $lang['avales_subtitle'] = "Avales ";
+  $lang['avales_title'] = "institucionales ";
  
 ?>

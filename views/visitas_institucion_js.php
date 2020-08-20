@@ -125,14 +125,10 @@ if (tipo != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
 else if (tamaño > 200000){
       alert("El tamaño no puede superar los 200 KB");
      }else{
-      $("#i_div_listo").show('slow');
       $("#i_btn_descargar_planilla").hide('slow');
       $("#i_label_carga").hide('slow');
       $('#i_div_msj_ayuda').hide('slow');
-      $("#i_btn_listo_listado_visitantes_b").show('slow');
-
-      //$("#i_btn_listo_listado_visiantes_b").attr("style","display: flex;");
-      
+      $("#i_div_listo").show('slow');
      }
       
 });
@@ -142,11 +138,6 @@ $("#i_btn_listo_listado_visitantes_b").click(function(){
   $("#i7").show('slow');
   $("#paso_camino_institucion7").hide('slow');
   $(this).hide();
-  //$("#i_div_listo").hide('slow');
-  $('#i_visitantes').attr("style", "display: flex")
-  $('#i_visitantes').html('<i class="fa fa-pencil-square-o" aria-hidden="true" title="Modificar Datos" onclick="modificarVisitantes()"></i>');
-
-  $("#i_confirm-PTA").show('slow');
 
 });
 
@@ -202,19 +193,6 @@ $("#i_btn_listo_listado_visitantes_b").click(function(){
   $("#i_procedencia").prop('required',true);
   $("#i_email").prop('required',true);
   $("#i_ocupacion").prop('required',true);
-
-  $("input[name='fiebre']").prop('required',true);
-  $("input[name='diarrea']").prop('required',true);
-  $("input[name='tos']").prop('required',true);
-  $("input[name='dolor']").prop('required',true);
-  $("input[name='olfato']").prop('required',true);
-  $("input[name='casos']").prop('required',true);
-  $("input[name='provincia']").prop('required',true);
-  $("input[name='pais']").prop('required',true);
-  
-
-
-
   formulario = document.getElementById('i_formulario');
 
   
@@ -521,24 +499,6 @@ function modificarResponsableInstitucion(){
  $("#paso_camino_institucion8").show('slow');
 }
 
-// si se desea modificar los datos de visitantes, se ocultan y muestran los bloques necesarios para la acción
-function modificarVisitantes(){
-  $("#i6").show('slow');
-
-  $("#i_btn_descargar_planilla").show('slow');
-  $("#i_label_carga").show('slow');
-  $('#i_div_msj_ayuda').show('slow');
-  //$("#i_div_listo").hide('slow');
-
-  $('#i_visitantes').hide('slow');
-  $("#i7").hide('slow');
-  $("#i8").hide('slow');
-  $("#paso_camino_institucion6").hide('slow');
-  $("#paso_camino_institucion7").show('slow');
-  $("#paso_camino_institucion8").show('slow');
-
-}
-
 
 
 </script>
@@ -648,24 +608,6 @@ $.ajax({
     resultado = jQuery.parseJSON(data); 
     if(resultado.success){
 
-      /*var f = new Date();
-      var doc = new jsPDF();
-      doc.setFontSize(16);
-
-      doc.text(20,20, 'San Juan, '+ f.getDate()+ ' del '+ (f.getMonth()+1) + ' del ' +f.getFullYear());
-      doc.text(20,30, 'Quienes subscriben: \n'+$("#i_nombre").val()+' '+$("#i_apellido").val()+', Edad '+$("#i_edad").val()+' años,\nProcedencia '+$("#i_procedencia").val()+'\nCorreo electronico '+$("#i_email").val()+',\ny sus acompañantes:\n');
-
-      var j=70;
-      for (i=0; i<resultado.visitante.length; i++){
-
-      doc.text(20, j, resultado.visitante[i].nombre+" "+resultado.visitante[i].apellido);
-      j=j+10;
-      
-    }
-      doc.text(20,j, '\nDeclaran bajo juramento que los datos consignados en este formulario son \nveraces, reales y completos sin omitir ni falsear dato alguno que deba \ncontener, siendo fiel expresion de la verdad.');
-      doc.save('Declaracion.pdf');*/
-      
-
       hora = $("#dia_hora_elegidos2").text().replace("_", ":");
 
       $("#texto_confirmacion_visita").text('Los esperamos en Anchipurac para realizar su visita grupal guiada, el '+$("#i_dia_hora_elegidos1").text()+', a las '+hora);
@@ -674,7 +616,7 @@ $.ajax({
       $("#ex1").attr("style","display: flex");
     }
     else{              
-      alert(resultado.msj);
+      alert(resultado.data);
       $("#i_btnEnviar").show();
       $("#i_loading").hide();
     }

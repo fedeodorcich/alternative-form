@@ -40,23 +40,12 @@
 	<meta property="og:type" content="website"/>
 	<meta property="og:site_name" content="Anchipurac"/>
 	<meta property="og:locale" content="es_LA"/>
-	<meta property="og:image" content="https://www.anchipurac.com/assets/favicon/site">
-	
 
 	
 </head>
 <body>
 
 	<?php $this->load->view('includes/nav') ?>
-	<!--a href='<?php echo base_url(); ?>languageswitcher/switchLang/english'>English</a>
-	<br>
-	<a href='<?php echo base_url(); ?>languageswitcher/switchLang/spanish'>Español</a-->
-	<div class="contenedor">
-		<select onchange="javascript:window.location.href='<?php echo base_url(); ?>LanguageSwitcher/switchLang/'+this.value;">
-		    <option value="english" <?php if($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?>>English</option>
-		    <option value="spanish" <?php if($this->session->userdata('site_lang') == 'spanish') echo 'selected="selected"'; ?>>Español</option>
-		</select>
-	</div>
 	<?php $this->load->view($contenido) ?>
 	<?php $this->load->view('includes/footer') ?>
 

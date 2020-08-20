@@ -19,7 +19,7 @@
 
       <div class="wrapper">
         <label for="cue"><?=lang('form_cue');?></label>
-        <input type="number" placeholder="<?=lang('form_cue_ph');?>" id="i_cue" name="i_cue" >
+        <input type="number" placeholder="<?=lang('form_cue_ph');?>" id="i_cue" name="i_cue" required>
       </div>
     </div>
     <div class="row tres-columnas segundo_paso" style="margin-bottom: 0">
@@ -108,7 +108,7 @@
   <div  class="una-columna particular-paso-2" >
     <div class="wrapper">
       <center>
-        <span>Defina cantidad de personas que realizarán la visita:  <input type="number" class="input-number__clean" name="i_numero_visitantes" id="i_numero_visitantes" min="1" max="10" placeholder="0">     personas</span>
+        <span>Defina cantidad de personas que realizarán la visita:  <input type="number" class="input-number__clean" name="i_numero_visitantes" id="i_numero_visitantes" min="1" placeholder="0">     personas</span>
       </center>
     </div>
   </div>
@@ -199,143 +199,6 @@
           <input type="text" placeholder="<?=lang('form_ocupacion_ph');?>" id="i_ocupacion" name="i_ocupacion" >
         </div>
       </div>  
-
-      <br>
-
-    <!--div class="div-covid">
-    
-    <h3 style="margin-bottom: 10px;">La siguiente encuesta se realiza en representación de todo el grupo</h3>
-    <h2>Encuesta COVID-19</h2>
-    
-    <div style="margin-top: 10px">
-      <label style="font-style: italic;">¿Tiene fiebre(37.5 o mas)?</label>
-      <div>
-          <label for="si1">
-              <input id="si1" type="radio" name="fiebre" value="Si" >Si
-          </label>
-      </div>
-    <div>
-      <label for="no1">
-        <input id="no1" type="radio" name="fiebre" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label style="font-style: italic;">¿Tiene diarrea o manifestaciones cutaneas?</label>
-      <div>
-      <label for="si2">
-         <input id="si2" type="radio" name="diarrea" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no2">
-        <input id="no2" type="radio" name="diarrea" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label style="font-style: italic;">¿Tiene tos?</label>
-      <div>
-      <label for="si3">
-         <input id="si3" type="radio" name="tos" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no3">
-        <input id="no3" type="radio" name="tos" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label style="font-style: italic;">¿Tiene dolor de garganta?</label>
-      <div>
-      <label for="si4">
-         <input id="si4" type="radio" name="dolor" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no4">
-        <input id="no4" type="radio" name="dolor" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-     <div>
-      <label style="font-style: italic;">¿Tiene perdida de olfato/gusto?</label>
-      <div>
-      <label for="si5">
-         <input id="si5" type="radio" name="olfato" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no5">
-        <input id="no5" type="radio" name="olfato" value="No">No
-      </label>
-    </div>
-    </div>
-    
-
-    <h2 style="margin-top: 10px">En los ultimos 21 dias...</h2>
-
-    <div style="margin-top: 10px">
-      <label style="font-style: italic;">¿Ha estado en contacto con casos confirmados de COVID-19?</label>
-      <div>
-      <label for="si6">
-         <input id="si6" type="radio" name="casos" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no6">
-        <input id="no6" type="radio" name="casos" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label style="font-style: italic;">¿Ha viajado fuera de la PROVINCIA?</label>
-      <div>
-      <label for="si7">
-         <input id="si7" type="radio" name="provincia" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no7">
-        <input id="no7" type="radio" name="provincia" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label style="font-style: italic;">¿Ha viajado fuera del PAIS?</label>
-      <div>
-      <label for="si8">
-         <input id="si8" type="radio" name="pais" value="Si" >Si
-      </label>
-    </div>
-    <div>
-      <label for="no8">
-        <input id="no8" type="radio" name="pais" value="No">No
-      </label>
-    </div>
-    </div>
-
-  
-
-  <br>
-  <div>
-    <p><strong>Al finalizar la inscripción se descargara una declaracion jurada</strong></p>
-  </div>
-</div-->
-
 
       <div class="row tres-columnas segundo_paso">
         <div class="wrapper" style=" grid-column: 2/3;">
@@ -432,10 +295,6 @@
           <button type="button" class="botones-visitas" style="margin: 0 auto" id="i_btn_listo_listado_visitantes_b">Continuar</button>
         </div>
 
-    </div>
-
-    <div style="align-items: center; align-content: center;">
-      <div class="wrapper" id="i_visitantes" style="align-items: center; border: none;padding: 2px;"></div>
     </div>
 
 

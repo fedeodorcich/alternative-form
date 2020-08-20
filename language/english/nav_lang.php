@@ -13,16 +13,16 @@ $lang['complejo-footer']= 'Complejo Ambiental San Juan';
 
 $lang['avales']        = 'Avales institucionales';
 
-$lang['experiencia']   = 'Experience';
+$lang['experiencia']   = 'Experiencia';
 $lang['ejes']          = 'Ejes temáticos';
 $lang['recorrido-interior']     = 'Recorrido interior';
 $lang['recorrido-exterior']     = 'Recorrido exterior';
 
-$lang['galeria']       = 'Gallery';
+$lang['galeria']       = 'Galería';
 $lang['fotografias']   = 'Fotografías';
 $lang['videos']        = 'Videos';
 
-$lang['tu_visita']     = 'Your Visit';
+$lang['tu_visita']     = 'Tu visita';
 $lang['informacion']   = 'Información';
 $lang['ubicacion']     = 'Ubicación';
 $lang['institucional'] = 'Institucional';
@@ -32,7 +32,7 @@ $lang['horarios']      = 'Días y horarios';
 $lang['compra_ticket'] = 'Reserva de tickets';
 $lang['medios_pago']   = 'Medios de pago';
 
-$lang['contacto']      = 'Contact';
+$lang['contacto']      = 'Contacto';
 $lang['formulario']   = 'Formulario';
 $lang['consultas']     = 'Consultas';
 
