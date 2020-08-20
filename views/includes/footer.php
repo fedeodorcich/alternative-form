@@ -109,6 +109,7 @@
                 <!-- <a href="#."><img src="<?= base_url('assets/iconos/site/twitter.svg')?>" alt=""></a> -->
                 <a href="https://www.instagram.com/somosanchipurac/" target="_blank"><img src="<?= base_url('assets/iconos/site/instagram.svg')?>" alt=""></a>
                 <a href="https://www.youtube.com/channel/UCv5kTy7yU5SxFbRiHkOyw9Q" target="_blank"><img src="<?= base_url('assets/iconos/site/youtube.svg')?>" alt=""></a>
+                <a href="https://wa.me/542644599518" target="_blank"><img src="<?= base_url('assets/iconos/site/descarga2.png')?>"></a>
               </div>
             </div>
           </div>

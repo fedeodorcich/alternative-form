@@ -2,13 +2,13 @@
  // $("#1").hide();
 
  // se ocultan los bloques no necesarios al inicio
- $("#p2").hide();
+ /*$("#p2").hide();
  $("#p3").hide();
  $("#p4").hide();
  $("#p5").hide();
  $('#p5b').hide();
  $("#p6").hide();
- $("#p7").hide();
+ $("#p7").hide();*/
 
  $("#paso_camino_particular2").hide();
  $("#paso_camino_particular3").hide();
@@ -20,13 +20,21 @@
 
  // accion al confirmar el día y hora de visita
  $("#btn_listo_dia").click(function(){
+
   let contador = 0;
   $("#tabla_cuerpo input").each(function(){
     if($(this).is(':checked')){
       contador++;
     }
   });
-
+/*if(! $("input[name='tipo']").is(':checked')){
+  
+    tipo = document.getElementById('interna');
+    console.log("Tipo: " +tipo)
+    tipo.setCustomValidity('Debe seleccionar un tipo de visita');
+    tipo.reportValidity();
+    return
+  }*/
   // obliga a seleccionar un horario
   if(contador == 0){
     hora = document.getElementById('hora');
@@ -34,6 +42,7 @@
     hora.reportValidity();
     return;
   }
+  
 
   // $("#p3 #ayuda-tercer-paso p").text('3 - Día y hora seleccionados');
 
@@ -52,6 +61,7 @@
   if($("#numero_visitantes").val() <= parseInt(ticket.slice(0,-20)) ){
 
     // bloque informativo de día y hora seleccionado
+    $("#t_visita").hide();
     $("#dia_hora").hide();
     $("#dia_hora_elegidos").show('slow');
     $("#dia_hora_elegidos1").text($("#fecha_seleccionada").text());
@@ -88,15 +98,12 @@ $("#btn_datos_personales").click(function(){
     }
   }
 
-  if($("#numero_visitantes").val() > 1  && $("#numero_visitantes").val() <= 6){
+  if($("#numero_visitantes").val() > 1){
     $("#p5").show('slow');
     $("#paso_camino_particular5").hide('slow');
-  }else if ($("#numero_visitantes").val() == 1){
+  }else{
     $("#p6").show('slow');
     $("#paso_camino_particular6").hide('slow');
-  }else{
-    $("#p5b").show('slow');
-    $("#paso_camino_particular5").hide('slow');
   }
   ocultar=false;
 
@@ -219,9 +226,133 @@ $("#confirm-PTA").click(function(){
 
 <script type="text/javascript">
 
-
-
   var disabledDays = <?= !empty($dias_bloqueados)? json_encode($dias_bloqueados) : json_encode('') ?>;
+  var diaSeleccionadoDatePicker = 0;
+  base_url = '<?=base_url()?>';
+   // carga de datepicker con valores iniciales y luego de acuerdo al día seleccionado, la tabla de horarios se va modificando
+   $( function() {
+    $( "#datepicker" ).datepicker({
+      closeText: 'Cerrar',
+      prevText: 'Anterior',
+      nextText: 'Siguiente',
+      currentText: 'Hoy',
+      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+      dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+      dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+      dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+      weekHeader: 'Sm',
+      dateFormat: 'dd/mm/yy',
+      minDate:   new Date('<?=date('n/j/Y', strtotime($hoyParticular))?>') ,
+      beforeShowDay: function(date){
+
+        var fecha = $( "#datepicker" ).datepicker( "getDate" );
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+        var day = date.getDay();
+        diaSeleccionadoDatePicker = fecha.getDay();
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        var isDisabled = ($.inArray(string, disabledDays) != -1);
+        var tooltipDate = "";
+        if(isDisabled){
+          tooltipDate = "This date is DISABLED!!";
+        }
+
+        $("#fecha_seleccionada").text(fecha.toLocaleDateString("es-ES", options));
+
+        //day != 0 disables all Sundays
+        //day != 2 && day != 4 &&
+        return [ !isDisabled,'',tooltipDate];
+      },
+      onSelect: function(dateText,inst) {
+        var fecha = $( "#datepicker" ).datepicker( "getDate" );
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        $("#fecha_seleccionada").text(fecha.toLocaleDateString("es-ES", options));
+
+        $("#fecha_datepicker").val(dateText);
+        diaSeleccionadoDatePicker = fecha.getDay();
+        $.ajax({
+
+          url: base_url + "visitas/horariosFechasObtener", //Comentario random
+          method: "POST",          
+          data: {
+            token_sistema: $("input:hidden[name='token_sistema']").val(),
+            fecha: this.value,
+          },            
+          // cache: false,
+          // contentType: false,
+          // processData: false,  
+          success: function( data ) {
+            resultado = jQuery.parseJSON(data); 
+            // background-color: #e5a4a4;
+
+            $("#tabla_cuerpo tr").remove();
+
+            //------------------------------------------
+            var f = new Date();
+            var dif = Math.ceil((fecha-f)/(1000*60*60*24));
+
+            //-------------------------------------------
+
+            $("#btn_listo_dia").show();
+
+            if(fecha.getDay()==3 || fecha.getDay() == 6){
+              if(dif >= 2){
+                fila = '<tr id="h_08_00"><td><input type="radio" onclick="horaSeleccionada()" name="hora" id="hora" value="08_00"  required> 10:00</td><td class="ocultar-responsive">Anchipurac/Parque Solar</td><td class="hora-estado">DISPONIBLE</td> </tr>';
+                $("#tabla_cuerpo").append(fila);
+              }
+            }
+            
+            for(i = 0; i < resultado.horariosHoy.length; i++){
+
+              hora = resultado.horariosHoy[i].hora.split(':');
+              fila = '<tr id="h_'+hora[0]+'_'+hora[1]+'"><td><input type="radio" onclick="horaSeleccionada()" name="hora" id="hora" value="'+hora[0]+'_'+hora[1]+'"  required> '+hora[0]+':'+hora[1]+'</td><td class="ocultar-responsive">Visita Guiada</td><td class="hora-estado">DISPONIBLE</td> </tr>';
+              $("#tabla_cuerpo").append(fila);
+            }
+
+            $("#tabla_cuerpo tr").css('background-color','rgb(129, 213, 209)');
+            $("#tabla_cuerpo .hora-estado").text(visitantesMaximo+' lugares disponibles');
+            $("#tabla_cuerpo input").prop('disabled',false);
+            $("#tabla_cuerpo input").prop('checked',false);
+
+            //Si es miercoles o sabado
+            /*if(fecha.getDay()==3 || fecha.getDay() == 6){
+              if(dif < 6){
+                $("#h_10_00p").css('background-color','#e5a4a4');
+                $("#h_10_00p").find('input').prop('disabled',true);
+                $("#h_10_00p"+" td:last").text('OCUPADO');
+            }
+            }*/
+
+            if(resultado.horariosHoy.length > 7){
+              $(".table-responsive").attr('style','overflow-y : scroll;height: 312px;');
+            }else{
+              $(".table-responsive").attr('style','overflow-y : hidden');
+            }
+
+            if(resultado.success){
+              
+              for(i = 0; i < resultado.data.length; i++){
+               hora = resultado.data[i].hora_visita.replace(':','_');
+               console.log(resultado.data[i])
+               if(parseInt(resultado.data[i].cantidad_disponible) < parseInt(visitantesMaximo) && parseInt(resultado.data[i].cantidad_disponible) > 0){
+                $("#h_"+hora+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');
+              }else{
+                $("#h_"+hora).css('background-color','#e5a4a4');
+                $("#h_"+hora).find('input').prop('disabled',true);
+                $("#h_"+hora+" td:last").text('OCUPADO');
+              }
+
+            }
+          }
+        }
+      });
+
+      }
+    });
+} );
+
+  /*var disabledDays = <?= !empty($dias_bloqueados)? json_encode($dias_bloqueados) : json_encode('') ?>;
   var diaSeleccionadoDatePicker = 0;
   base_url = '<?=base_url()?>';
    // carga de datepicker con valores iniciales y luego de acuerdo al día seleccionado, la tabla de horarios se va modificando
@@ -292,7 +423,7 @@ $("#confirm-PTA").click(function(){
             }
 
             $("#tabla_cuerpo tr").css('background-color','rgb(129, 213, 209)');
-            $("#tabla_cuerpo .hora-estado").text(visitantesMaximo+' lugares disponibles');
+            $("#tabla_cuerpo .hora-estado").text(visitantesMaximo+' lugares disponibles');  //aca se carga por primera vez
             $("#tabla_cuerpo input").prop('disabled',false);
             $("#tabla_cuerpo input").prop('checked',false);
 
@@ -302,32 +433,234 @@ $("#confirm-PTA").click(function(){
               $(".table-responsive").attr('style','overflow-y : hidden');
             }
 
-            if(resultado.success){                       
+            if(resultado.success){
 
-              for(i = 0; i < resultado.data.length; i++){
-               hora = resultado.data[i].hora_visita.replace(':','_');
-               if(parseInt(resultado.data[i].cantidad_disponible) < parseInt(visitantesMaximo) && parseInt(resultado.data[i].cantidad_disponible) > 0){
-                $("#h_"+hora+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');
-              }else{
-                $("#h_"+hora).css('background-color','#e5a4a4');
-                $("#h_"+hora).find('input').prop('disabled',true);
-                $("#h_"+hora+" td:last").text('OCUPADO');
+                /*for(i = 0; i < resultado.data.length; i++){
+                 hora = resultado.data[i].hora_visita.replace(':','_');
+                 if(parseInt(resultado.data[i].cantidad_disponible) < parseInt(visitantesMaximo) && parseInt(resultado.data[i].cantidad_disponible) > 0){
+                  $("#h_"+hora+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');
+                }else{
+                  $("#h_"+hora).css('background-color','#e5a4a4');
+                  $("#h_"+hora).find('input').prop('disabled',true);
+                  $("#h_"+hora+" td:last").text('OCUPADO');
+                }
+            }*/
+
+            //let tipo = 0;
+            //$("input[name='tipo']").change(function (){
+/*$('input[type=radio][name=tipo]').change(function() {
+    if (this.value == 'interna') {
+        console.log("Interna");
+    }
+    else if (this.value == 'completa') {
+        console.log("Completa");
+    }
+});*/
+              //$('input[type=radio][name=tipo]').change(function() {
+
+        /*if ($("input[name='tipo']:checked").val()=='interna') {
+                for(i = 0; i < resultado.data.length; i++){
+                 hora = resultado.data[i].hora_visita.replace(':','_');
+                 if(parseInt(resultado.data[i].cantidad_disponible) < parseInt(visitantesMaximo)  && parseInt(resultado.data[i].cantidad_disponible) > 0 ){
+                  $("#h_"+hora+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');    
+                }else{
+                  $("#h_"+hora).css('background-color','#e5a4a4');
+                  $("#h_"+hora).find('input').prop('disabled',true);
+                  $("#h_"+hora+" td:last").text('OCUPADO');
+                }
               }
+        }
 
+        else{
+
+          //Bloquea ultimo turno
+            $("#h_15_30").css('background-color','#e5a4a4');
+            $("#h_15_30").find('input').prop('disabled',true);
+            $("#h_15_30 td:last").text('OCUPADO');
+            
+          for(i = 0; i < resultado.data.length; i++){
+            
+            hora2 = resultado.data[i].hora_visita.replace(':','_');
+
+            hora = hora2.split('_'); // Hora ocupada
+            //console.log('Hora: '+hora[0])
+
+            let hh = hora[0];
+            let mm = hora[1];
+            let c=hh;
+
+            if(mm == 30){
+              mm = '00';
+            }else{
+              c = parseInt(hh)-1;
+              mm = '30';
+              if(c<10){
+                c = '0'+ c;
+              }
             }
+            
+            horaprev = c+'_'+mm;
+            //console.log("Hora previa["+i+"] = "+horaprev+" / "+hora2);
+
+            hhn = hora[0];
+            mmn = hora[1];
+            cn=hh;
+
+            if(mmn == 30){
+              mmn = '00';
+              cn = parseInt(hh)+1;
+               if(cn<10){
+                cn = '0'+ c;
+              }
+            }else{
+              mmn = '30';
+            }
+            horanext = cn+'_'+mmn;
+           // console.log("Hora siguiente["+i+"] = "+horanext+" / "+hora2);
+
+             if(parseInt(resultado.data[i].cantidad_disponible) < (parseInt(visitantesMaximo))  && parseInt(resultado.data[i].cantidad_disponible) > 0 ){
+             // console.log(resultado.data[i].cantidad_disponible)
+              $("#h_"+hora2+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');
+              
+            }else{
+              $("#h_"+hora2).css('background-color','#e5a4a4');
+              $("#h_"+hora2).find('input').prop('disabled',true);
+              $("#h_"+hora2+" td:last").text('OCUPADO');
+            }
+
+              $("#h_"+horaprev).css('background-color','#e5a4a4');
+              $("#h_"+horaprev).find('input').prop('disabled',true);
+              $("#h_"+horaprev+" td:last").text('OCUPADO');
+
+              $("#h_"+horanext).css('background-color','#e5a4a4');
+              $("#h_"+horanext).find('input').prop('disabled',true);
+              $("#h_"+horanext+" td:last").text('OCUPADO');
+
+        }
+        }
+
+           $('input[type=radio][name=tipo]').change(function(){
+           // console.log("Valor de radio: "+$("input[name='tipo']:checked").val())
+              
+            $("#tabla_cuerpo tr").remove();
+
+            $("#btn_listo_dia").show();
+            for(i = 0; i < resultado.horariosHoy.length; i++){
+              hora = resultado.horariosHoy[i].hora.split(':');
+              fila = '<tr id="h_'+hora[0]+'_'+hora[1]+'"><td><input type="radio" onclick="horaSeleccionada()" name="hora" id="hora" value="'+hora[0]+'_'+hora[1]+'"  required> '+hora[0]+':'+hora[1]+'</td><td class="ocultar-responsive">Visita Guiada</td><td class="hora-estado">DISPONIBLE</td> </tr>';
+              $("#tabla_cuerpo").append(fila);
+            }
+
+            $("#tabla_cuerpo tr").css('background-color','rgb(129, 213, 209)');
+            $("#tabla_cuerpo .hora-estado").text(visitantesMaximo+' lugares disponibles');  //aca se carga por primera vez
+            $("#tabla_cuerpo input").prop('disabled',false);
+            $("#tabla_cuerpo input").prop('checked',false);
+
+            if(resultado.horariosHoy.length > 7){
+              $(".table-responsive").attr('style','overflow-y : scroll;height: 312px;');
+            }else{
+              $(".table-responsive").attr('style','overflow-y : hidden');
+            }
+              
+              if ($("input[name='tipo']:checked").val()=='interna') {
+                for(i = 0; i < resultado.data.length; i++){
+                 hora = resultado.data[i].hora_visita.replace(':','_');
+                 if(parseInt(resultado.data[i].cantidad_disponible) < parseInt(visitantesMaximo)  && parseInt(resultado.data[i].cantidad_disponible) > 0 ){
+                  $("#h_"+hora+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');    
+                }else{
+                  $("#h_"+hora).css('background-color','#e5a4a4');
+                  $("#h_"+hora).find('input').prop('disabled',true);
+                  $("#h_"+hora+" td:last").text('OCUPADO');
+                }
+              }
+        }
+
+        else{
+          //Bloquea ultimo turno
+            $("#h_15_30").css('background-color','#e5a4a4');
+            $("#h_15_30").find('input').prop('disabled',true);
+            $("#h_15_30 td:last").text('OCUPADO');
+
+          for(i = 0; i < resultado.data.length; i++){
+
+            
+            
+            hora2 = resultado.data[i].hora_visita.replace(':','_');
+
+            hora = hora2.split('_'); // Hora ocupada
+           // console.log('Hora: '+hora[0])
+
+            let hh = hora[0];
+            let mm = hora[1];
+            let c=hh;
+
+            if(mm == 30){
+              mm = '00';
+            }else{
+              c = parseInt(hh)-1;
+              mm = '30';
+              if(c<10){
+                c = '0'+ c;
+              }
+            }
+            
+            horaprev = c+'_'+mm;
+            //console.log("Hora previa["+i+"] = "+horaprev+" / "+hora2);
+
+            hhn = hora[0];
+            mmn = hora[1];
+            cn=hh;
+
+            if(mmn == 30){
+              mmn = '00';
+              cn = parseInt(hh)+1;
+               if(cn<10){
+                cn = '0'+ c;
+              }
+            }else{
+              mmn = '30';
+            }
+            horanext = cn+'_'+mmn;
+            //console.log("Hora siguiente["+i+"] = "+horanext+" / "+hora2);
+
+             if(parseInt(resultado.data[i].cantidad_disponible) < (parseInt(visitantesMaximo))  && parseInt(resultado.data[i].cantidad_disponible) > 0 ){
+              console.log(resultado.data[i].cantidad_disponible)
+              $("#h_"+hora2+" td:last").text(resultado.data[i].cantidad_disponible+' lugares disponibles');
+              
+            }else{
+              
+
+              $("#h_"+hora2).css('background-color','#e5a4a4');
+              $("#h_"+hora2).find('input').prop('disabled',true);
+              $("#h_"+hora2+" td:last").text('OCUPADO');
+            }
+
+              $("#h_"+horaprev).css('background-color','#e5a4a4');
+              $("#h_"+horaprev).find('input').prop('disabled',true);
+              $("#h_"+horaprev+" td:last").text('OCUPADO');
+
+              $("#h_"+horanext).css('background-color','#e5a4a4');
+              $("#h_"+horanext).find('input').prop('disabled',true);
+              $("#h_"+horanext+" td:last").text('OCUPADO');
+
+        }
+        }
+      });
+          
           }
         }
       });
 
       }
     });
-} );
+});*/
 
-var nro = '';
 //var ocultar = true;
 var ant =  $("#carga_visitantes .row").length;
 console.log(ant);
 
+// accion al modificar la cantidad de visitantes 
+var nro = '';
 // accion al modificar la cantidad de visitantes 
 $("#numero_visitantes").change(function(){
   $("#p3").show('slow');
@@ -341,100 +674,55 @@ $("#numero_visitantes").change(function(){
 
   }
 
-  cantidad = $(this).val() - 1; //quitar el -1 o cambiar condiciones
 
-    if (cantidad >= 6){
-      cantidadFilasVisitantes = cantidad + 1;
-    }else {
-      cantidadFilasVisitantes = $("#carga_visitantes .row").length;
-    }
+  cantidadFilasVisitantes = $("#carga_visitantes .row").length;
+  cantidad = $(this).val() - 1;
 
-  console.log(cantidadFilasVisitantes);
-
-  // clona la cantidad faltante de visitantes o elimina la cantidad sobrante
+  // clona la cnatidad faltante de visitantes o elimina la cantidad sobrante
   if(cantidad > cantidadFilasVisitantes){
-    //Si antes no llegaba a 6 se deben agregar filas
-    if(ant <= 5) {
-      filasFaltantes = cantidad - cantidadFilasVisitantes;
-      for(i = 0; i < filasFaltantes; i++){
-        fila = $("#carga_visitantes .row:first-child").clone();
 
-        if(nro == '')
-          nro = parseInt(fila.find('.nro_visitante').text().trim().replace('.','')) + 1;
-        else nro++;
+    filasFaltantes = cantidad - cantidadFilasVisitantes;
+    for(i = 0; i < filasFaltantes; i++){
+      fila = $("#carga_visitantes .row:first-child").clone();
 
-        fila.attr('id','visitante_'+nro);
+      if(nro == '')
+        nro = parseInt(fila.find('.nro_visitante').text().trim().replace('.','')) + 1;
+      else nro++;
 
-        fila.find('.nro_visitante').text(nro);
-        $("#carga_visitantes").append(fila);
-        $("#visitante_"+nro+' .wrapper .datos_visitante').val('');
-        $("#visitante_"+nro+' .wrapper input[type=checkbox]').prop('checked',false);
-      }
+      fila.attr('id','visitante_'+nro);
 
-      if(!ocultar){
-        $("#p5").show('slow');
-        $('#p5b').hide('slow')
-      }
-      
-      $("#btn_listo_listado_visitantes").show();
-      $("#p6").hide('slow');
-      $("#p7").hide('slow');
-
-      $("#paso_camino_particular6").show('slow');
-      $("#paso_camino_particular7").show('slow');
-    
-    }else{  
-        
-        generarFilas(cantidad);
-      
+      fila.find('.nro_visitante').text(nro);
+      $("#carga_visitantes").append(fila);
+      $("#visitante_"+nro+' .wrapper .datos_visitante').val('');
+      $("#visitante_"+nro+' .wrapper input[type=checkbox]').prop('checked',false);
     }
-    ant =  $("#carga_visitantes .row").length;
+
+
+    $("#btn_listo_listado_visitantes").show();
+    $("#p6").hide('slow');
+    $("#p7").hide('slow');
+
+    $("#paso_camino_particular6").show('slow');
+    $("#paso_camino_particular7").show('slow');
 
   }else{
-   if(cantidad > 0 ){ 
-    // Si antes habia menos de 6 se deben quitar filas
-    if (cantidad <=5){
-       if(ant < 6){
-         //alert("siempre aca");
-        filasSobrantes = cantidadFilasVisitantes - cantidad;         
-        for(i = 0; i < filasSobrantes; i++){
-          $("#carga_visitantes .row:last-child").remove();
-          nro--;
-        }
-        if(!ocultar){
-          $('#p5').show('slow');
-          $("#p5b").hide('slow');
-        }
-
-       }
-        else {
-        generarFilas(cantidad);
-
+   if(cantidad > 0){
+    filasSobrantes = cantidadFilasVisitantes - cantidad;         
+    for(i = 0; i < filasSobrantes; i++){
+      $("#carga_visitantes .row:last-child").remove();
+      nro--;
     }
-
-    ant =  $("#carga_visitantes .row").length;
-     }else{
-
-       $('#p5').hide('slow');
-        if( ocultar ){
-          $("#p5b").hide('slow');
-        }
-       else {
-        $("#p5b").show('slow');
-      }
-      
-     }
-  }else{  
-  //Solo tiene responsable, salta a paso 6
+    if(!ocultar)
+      $("#p5").show('slow');
+  }else{
    $("#p5").hide('slow');
-   $("#p5b").hide('slow');
-   if(!ocultar){
-    $('#p6').show('slow');
-   }
+   if(!ocultar)
+     $("#p6").show('slow');
+
  }
- 
 }
-//ocultar = false;
+
+
 
 });
 
@@ -584,48 +872,34 @@ function modificarResponsable(){
 
 
 
-$("#btnEnviarParticular").click(function(){  ///Desde aca
+$("#btnEnviarParticular").click(function(){
 
-formdata = new FormData(document.getElementById('formulario'));
+    formdata = new FormData(document.getElementById('formulario'));
 
-if ($('#numero_visitantes').val() <= 6 && $('#numero_visitantes').val() > 1){
+    cantidad_visitantes = 0;
 
-cantidad_visitantes = 0;
+    // se agregan al formData los visitantes
+    $("#carga_visitantes .fila-visitante").each(function(index){
+      visitante = $(this);
 
-// se agregan al formData los visitantes
-$("#carga_visitantes .fila-visitante").each(function(index){  ///coment
-  visitante = $(this);
+      fila = {
+        apellido_visitante : visitante[0].childNodes[3].childNodes[1].value,
+        nombre_visitante : visitante[0].childNodes[5].childNodes[1].value,
+        edad_visitante : visitante[0].childNodes[7].childNodes[1].value,
+        ocupacion_visitante : visitante[0].childNodes[9].childNodes[1].value,
+      };
 
-  fila = {
-    apellido_visitante : visitante[0].childNodes[3].childNodes[1].value,
-    nombre_visitante : visitante[0].childNodes[5].childNodes[1].value,
-    edad_visitante : visitante[0].childNodes[7].childNodes[1].value,
-    ocupacion_visitante : visitante[0].childNodes[9].childNodes[1].value,
-  };
+      fila = JSON.stringify(fila);
+      formdata.append('visitante_'+index,fila);
+      cantidad_visitantes++;
+    });
 
-   fila = JSON.stringify(fila);
-   formdata.append('visitante_'+index,fila);
-   cantidad_visitantes++;
-   console.log(cantidad_visitantes);
-
-  //cantidad_visitantes= $('#numero_visitantes').val();
-  //alert(cantidad_visitantes);
-});
-// cantidad de visitantes
-//formdata.append('cantidad_visitantes',cantidad_visitantes);   //end coment
-//console.log(cantidad_visitantes);
-
-}
-else if ($('#numero_visitantes').val() == 1){
+if ($('#numero_visitantes').val() == 1){
   cantidad_visitantes=0;
-} else  {
-  cantidad_visitantes= $('#numero_visitantes').val()-1;
-  //console.log(cantidad_visitantes);
-
 }
 
 formdata.append('cantidad_visitantes',cantidad_visitantes);
-//console.log(cantidad_visitantes);
+console.log("Cant visistantes: "+cantidad_visitantes);
 
 $("#btnEnviarParticular").hide();
 $("#loading").show();
@@ -644,16 +918,35 @@ $.ajax({
     resultado = jQuery.parseJSON(data); 
     if(resultado.success){
 
-      var f = new Date();
+     /* var f = new Date();
       var doc = new jsPDF();
+      doc.setFontSize(16);
       doc.text(20,20, 'San Juan, '+ f.getDate()+ ' del '+ (f.getMonth()+1) + ' del ' +f.getFullYear());
-      doc.text(20,30, 'Quien subscribe '+$("#nombre").val()+' '+$("#apellido").val()+', Edad '+$("#edad").val()+' años\nProcedencia '+$("#procedencia").val()+' Correo electronico '+$("#email").val()+'\ntelefono '+$("#telefono_particular").val());
+      doc.text(20,30, 'Quienes subscriben: \nResponsable: ' +$("#nombre").val()+' '+$("#apellido").val()+', Edad '+$("#edad").val()+' años,\nProcedencia '+$("#procedencia").val()+',\nCorreo electronico '+$("#email").val()+',\ntelefono '+$("#telefono_particular").val()+',\ny sus acompañantes: \n');
 
-      doc.setFontSize(12);
-      doc.text(20,50, '\n\nDeclaro bajo juramento que los datos consignados en este formulario son veraces, reales y \ncompletos sin omitir ni falsear dato alguno que deba contener, siendo fiel expresion de la verdad.');
-      doc.save('Declaracion.pdf');
+      var i=70;
+      $("#carga_visitantes .fila-visitante").each(function(index){
+      visitante = $(this);
+
+      fila = {
+        apellido_visitante : visitante[0].childNodes[3].childNodes[1].value,
+        nombre_visitante : visitante[0].childNodes[5].childNodes[1].value,
+        edad_visitante : visitante[0].childNodes[7].childNodes[1].value,
+        
+      };
+
+      console.log(fila.nombre_visitante);
+
+      doc.text(20,i,fila.nombre_visitante+" "+fila.apellido_visitante)
+      i=i+10;
+      });
+
       
-
+      doc.text(20,i, '\nDeclaran bajo juramento que los datos consignados en este formulario son \nveraces, reales y completos sin omitir ni falsear dato alguno que deba \ncontener, siendo fiel expresion de la verdad.');
+      doc.save('Declaracion.pdf');*/
+      
+      //console.log("Validacion: "+resultado.msj);
+      //console.log("uploadedfile: "+resultado.up);
       hora = $("#dia_hora_elegidos2").text().replace("_", ":");
 
       $("#texto_confirmacion_visita").text('Los esperamos en Anchipurac para realizar su visita grupal guiada, el '+$("#dia_hora_elegidos1").text()+', a las '+hora);
@@ -664,7 +957,7 @@ $.ajax({
     }
     else{   
                
-      alert("No success: ");
+      alert(resultado.msj);
       $("#btnEnviarParticular").show();
       $("#loading").hide();
     }

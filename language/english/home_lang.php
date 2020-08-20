@@ -4,25 +4,25 @@ $lang['titulo_menu'] = "MENÚ";
 
 $lang['sin_congresos'] = 'No hay congresos para mostrar';
 
-$lang['slogan'] = 'Centro ambiental';
-$lang['parrafo'] = 'Imaginar y forjar un futuro sustentable es una tarea del presente. Anchipurac es una propuesta educativa que tiene entre sus propósitos motivar a los ciudadanos a través de la experiencia y el conocimiento a adoptar un estilo de vida pensando en las generaciones del hoy y del mañana.';
+$lang['slogan'] = 'Environmental Center';
+$lang['parrafo'] = 'Imagining and building a sustainable future is our task today. Anchipurac is an education project with the purpose of motivating the community through experiences and knowledge to adopt a way of life, considering not only the present but also the future generations.';
 
-$lang['vision_titulo'] = 'Visión';
-$lang['vision_cuerpo'] = 'Formar un centro de referencia a nivel regional y nacional en materia de educación, cultura e investigación ambiental.';
+$lang['vision_titulo'] = 'Vision';
+$lang['vision_cuerpo'] = 'To build a reference center on a regional and national scale with the purpose of promoting education, culture and environmental research.';
 
-$lang['mision_titulo'] = 'Misión';
-$lang['mision_cuerpo'] = 'Crear, promover y difundir educación y cultura ambiental con el fin de formar ciudadanos ambientalmente responsables y copartícipes del desarrollo sustentable a nivel provincial y regional.';
+$lang['mision_titulo'] = 'Mission';
+$lang['mision_cuerpo'] = 'To create, promote and spread environmental education and culture, with the purpose of helping citizens to be environmentally responsible and co-participants in the matter of sustainable development on a provincial and a regional scale.';
 
-$lang['valores_titulo'] = 'Valores';
-$lang['valores_cuerpo'] = 'Respeto por el ser humano y toda la biodiversidad, <br>Apoyo al desarrollo sustentable. Solidaridad. Participación.<br>Igualdad. Ética. Profesionalismo. Honestidad';
+$lang['valores_titulo'] = 'Values';
+$lang['valores_cuerpo'] = 'Respect for human beings and all the biodiversity. <br>Support for a sustainable development. Solidarity. Participation.<br>Igualdad. Ética. Equality. Ethics. Professionalism. Honesty.';
 
-$lang['ubicacion_linea_1'] = 'Nuestra';
-$lang['ubicacion_linea_2'] = 'UBICACIÓN';
-$lang['ubicacion_linea_3'] = 'Agustín Gómez y pie de monte de la Sierra Chica <br> Rivadavia, San Juan, Argentina.';
-$lang['ubicacion_linea_4'] = 'Administración +54 264 438-2240 •  asesoresculturales@anchipurac.com • www.anchipurac.com';
+$lang['ubicacion_linea_1'] = 'Our';
+$lang['ubicacion_linea_2'] = 'LOCATION';
+$lang['ubicacion_linea_3'] = 'Agustín Gómez next to the foot of Sierra Chica hill<br> Rivadavia, San Juan, Argentina.';
+$lang['ubicacion_linea_4'] = 'Administration +54 264 438-2240 •  asesoresculturales@anchipurac.com • www.anchipurac.com';
 // $lang['ubicacion_linea_5'] = '<span class="icon-facebook"></span> /anchipurac <span class="icon-instagram"></span> @somosanchipurac';
 
-$lang['galeria_linea_1'] = 'Nuestra';
-$lang['galeria_linea_2'] = 'GALERÍA';
+$lang['galeria_linea_1'] = 'Our';
+$lang['galeria_linea_2'] = 'GALLERY';
 
 ?>

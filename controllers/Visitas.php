@@ -77,7 +77,7 @@ institución previo aviso y acuerdo con el establecimiento educativo correspondi
 Traslados al centro ambiental Anchipurac desde Centro Cívico según disponibilidad y con reservas anticipadas, autorizado solamente para 6° grado de nivel primario, 3° y 6° año de secundaria, previa declaración jurada de los directivos de los colegios y escuelas certificando este beneficio exclusivo para los mencionados cursos';*/
 		
                  $data['modalContenidoInstitucion3']='Para todos los colegios y o escuelas que deseen tomar un turno exclusivamente para los niveles aprobados por Resolución Ministerial y bajo declaración jurada 6to grado primaria, 3, 6, 7, secundaria con no más de 10 personas por turno , deberán ingresar en nuestra página web www.anchipurac.com y completar desde la pestaña instituciones visita grupal todos los datos consignados y además se dejarán los datos completos del responsable de la visita, dirección, teléfono de contacto y datos completos del establecimiento educativo y nombre del director o directora.
-Cabe destacarse que la inscripción y obtención del turno no incluye el traslado al Centro Ambiental Anchipurac, quedando este traslado a cargo de la institución escolar. Si usted y su establecimiento desea contar con transporte debe comunicarse con el 4382240  whatssap, o vía Telefónica al 2644791840 y solicitar traslado que quedara  sujeto a la disponibilidad de fechas y turnos. Horario de atención telefónica y o whatssap: de 8 hs  a 14 hs.';
+Cabe destacarse que la inscripción y obtención del turno no incluye el traslado al Centro Ambiental Anchipurac, quedando este traslado a cargo de la institución escolar. Si usted y su establecimiento desea contar con transporte debe comunicarse con el 4382240  whatsapp, o vía Telefónica al 2644791840 y solicitar traslado que quedara  sujeto a la disponibilidad de fechas y turnos. Horario de atención telefónica y o whatsapp: de 8 hs  a 14 hs.';
 
 
 		// funcion que trae los dias seleccionados como bloqueados
@@ -146,6 +146,16 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 	* @param no posee 
 	* @return visita almacenada, con código de visita
 	*/  
+
+
+	public function prueba(){
+		if($_POST['cant']!=""){
+			echo "Cantidad devuelta desde el servidor: " . $_POST['cant'];
+		}else{
+			echo "No se ingreso nada";
+		}
+	}
+
 	public function guardarVisitaParticular(){
 
 		// se crea un objeto que será devuelto a la vista
@@ -175,7 +185,9 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 		
 		// antes de guardar, se valida que la cantidad seleccionada de visitantes se encuentre disponible
 		$validacion = $this->Model_Visitas->validarVisita($visita,$this->visitantesMaximo);
+		
 		$validacion = (!empty($validacion))? $validacion->cantidad_disponible : 0;
+		//$v=$validacion;
 
 		// si no se encontrarion visitas en esa fecha y hora y la cantidad es menor, se procede a su almacenamiento
 		if((int)$validacion + (int)$cantidad_visitantes < (int)$this->visitantesMaximoReal){
@@ -214,7 +226,7 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 			//=============================================//
 
 
-			if($cantidad_visitantes >= 1 && $cantidad_visitantes <= 5){
+			if($cantidad_visitantes >= 1 && $cantidad_visitantes <= 9){
 			// Si cantidad de visitantes es  menor o igual a 6 se itera con la cantidad de visitantes seleccionados y se los guarda en la BD uno por uno
 				for($i = 0; $i < $cantidad_visitantes; $i++){    
 
@@ -316,19 +328,24 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 			$response->destinoEmail = $this->input->post('email');
 
 			// indica el estado del email, si es true, el email se envió correctamente
-			$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable,$codeFile);
+			//$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable,$codeFile);
 
 			// se devuelve el código generado
 			//$response->data = $codigo;
 			$response ->qr = $codeFile;
 			$response->success = true;
+			//$response->msj = 'La cantidad ingresada supera el cupo disponible de visitantes.';
 		}else{
 			// mensaje que indica que la cantidad de visitantes supera el máximo
-			$response->data = 'La cantidad ingresada supera el cupo disponible de visitantes.';
+			$response->msj = 'La cantidad ingresada supera el cupo disponible de visitantes.';
 			$response->success = false;
 		}
 
+		//$response->validacion=$v;
+
 		// respuesta a la vista con una variable json
+
+		//$response -> up=$uploadedfileload;
 		echo json_encode($response);
 
 
@@ -468,15 +485,15 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 						$archivo= new SimpleXLS($add);
 					}
 
-				
+				$i=0;
 				foreach ( $archivo->rows() as $r => $row ) {
 
 					if($r > 0 && $row[0]!=''){
 						$visitante = array(
 							
 							'id_visitas' => $id_visitas,
-							'nombre' => $row[0],
-							'apellido' => $row[1],
+							'apellido' => $row[0],
+							'nombre' => $row[1],
 							'edad' => $row[2],
 							'ocupacion' => '-',
 							'visita_pta' => '-',
@@ -484,10 +501,21 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 							'hora_visita' => str_replace("_", ":", $this->input->post('i_hora')),
 							);
 
+							$response->visitante[$i] = $visitante; //para que puse esto?
+							$i++;
+
 							$this->Model_Visitas->guardarVisitaInstitucion($visitante);
 			
 					}
 				}
+
+				if($cantidad_visitantes ==  $i){
+					//Nada
+				}else{
+					//Notificar succes null, eliminar visita y personas institucion con ese id_visitas
+				}
+				
+
 				
 			}else{
 				$response->success = false;}
@@ -504,7 +532,7 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 			$response->destinoEmail = $this->input->post('i_email');
 
 			// indica el estado del email, si es true, el email se envió correctamente
-			$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable, $codeFile);
+			//$response->estadoEmail = $this->enviarEmailVisita($visita,$responsable, $codeFile);
 
 			// se devuelve el código generado
 			//$response->data = $codigo;
@@ -512,7 +540,7 @@ Cabe destacarse que la inscripción y obtención del turno no incluye el traslad
 			$response->success = true;
 		}else{
 			// mensaje que indica que la cantidad de visitantes supera el máximo
-			$response->data = 'La cantidad ingresada supera el cupo disponible de visitantes.';
+			$response->msj = 'La cantidad ingresada supera el cupo disponible de visitantes.';
 			$response->success = false;
 		}
 

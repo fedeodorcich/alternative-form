@@ -6,18 +6,40 @@
   <div  class="una-columna particular-paso-2" >
     <div class="wrapper">
       <center>
-        <span>Defina cantidad de personas que realizarán la visita:  <input type="number" class="input-number__clean" name="numero_visitantes" id="numero_visitantes" min="1" placeholder="0">     personas</span>
+        <span>Defina cantidad de personas que realizarán la visita:  <input type="number" class="input-number__clean" name="numero_visitantes" id="numero_visitantes" min="1" max="10" placeholder="0">     personas</span>
       </center>
     </div>
   </div>
 </div>
 
 <div id="p3">
+
+  
   <div id="ayuda-tercer-paso" class=" header__style" style="display: grid;grid-template-rows: 100%;text-align: left;background-color: #575756;">
     <p class="path"><strong class="header__bolder_num">3</strong>Seleccione día y hora</p>
   </div>
   <div class="">
+
+    <div id="t_visita" style="align-content: center; text-align: center;margin-top: 10px; display:block;">
+      <!--div style="display: block;">
+        <label for="interna">
+          <strong class="tipo-v" >Visita interna duración 1:40 hs aprox</strong><input id="interna" type="radio" name="tipo" value="interna" style="margin-left: 5px" required checked>
+        </label>
+      </div>
+      <div style="display: block;">
+        <label for="completa">
+           <strong class="tipo-v">Visita completa duración 2:30 hs aprox</strong><input id="completa" type="radio" name="tipo" value="completa" style="margin-left: 5px" required>
+        </label>
+      </div-->
+
+      <p style="font-size: 1.1rem"><strong>El turno de las 10 hs de los días Miércoles y Sábados incluyen visita a la Planta Solar Anchipurac con una duración total de 3 hs aprox. Deberá sacar este turno con 48 hs de anticipación. Considere los elementos necesarios para su comodidad.</strong></p>
+    </div>
+
+
     <div class="grid-container mt-40" id="dia_hora" >
+
+      
+
       <div class="item1">
        <div id="datepicker"></div>
        <input type="hidden" name="fecha_datepicker" id="fecha_datepicker" value="<?=date('j/n/Y', strtotime($hoyParticular))?>">
@@ -102,141 +124,7 @@
 
 <br>
 
-    <div>
-    
-    <h3>La siguiente encuesta se realiza en reprsentación de todo el grupo</h3>
-    <h2>Encuesta COVID-19</h2>
-
-
-    
-    <div>
-      <label>¿Tiene fiebre(37.5 o mas)?</label>
-      <div>
-          <label for="si1">
-              <input id="si1" type="radio" name="fiebre" value="Si" required>Si
-          </label>
-      </div>
-    <div>
-      <label for="no1">
-        <input id="no1" type="radio" name="fiebre" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label>¿Tiene diarrea o manifestaciones cutaneas?</label>
-      <div>
-      <label for="si2">
-         <input id="si2" type="radio" name="diarrea" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no2">
-        <input id="no2" type="radio" name="diarrea" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label>¿Tiene tos?</label>
-      <div>
-      <label for="si3">
-         <input id="si3" type="radio" name="tos" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no3">
-        <input id="no3" type="radio" name="tos" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label>¿Tiene dolor de garganta?</label>
-      <div>
-      <label for="si4">
-         <input id="si4" type="radio" name="dolor" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no4">
-        <input id="no4" type="radio" name="dolor" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-     <div>
-      <label>¿Tiene perdida de olfato/gusto?</label>
-      <div>
-      <label for="si5">
-         <input id="si5" type="radio" name="olfato" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no5">
-        <input id="no5" type="radio" name="olfato" value="No">No
-      </label>
-    </div>
-    </div>
-    
-
-    <h2>En los ultimos 21 dias...</h2>
-
-    <div>
-      <label>¿Ha estado en contacto con casos confirmados de COVID-19?</label>
-      <div>
-      <label for="si6">
-         <input id="si6" type="radio" name="casos" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no6">
-        <input id="no6" type="radio" name="casos" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label>¿Ha viajado fuera de la PROVINCIA?</label>
-      <div>
-      <label for="si7">
-         <input id="si7" type="radio" name="provincia" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no7">
-        <input id="no7" type="radio" name="provincia" value="No">No
-      </label>
-    </div>
-    </div>
-
-
-    <div>
-      <label>¿Ha viajado fuera del PAIS?</label>
-      <div>
-      <label for="si8">
-         <input id="si8" type="radio" name="pais" value="Si" required>Si
-      </label>
-    </div>
-    <div>
-      <label for="no8">
-        <input id="no8" type="radio" name="pais" value="No">No
-      </label>
-    </div>
-    </div>
-
-  
-
-  <br>
-  <div>
-    <p><strong>Al finalizar la inscripcion se descargara una declaracion jurada</strong></p>
-  </div>
-</div>
+   
 
     <div class="row tres-columnas segundo_paso">
       <div class="wrapper" style=" grid-column: 2/3;">

@@ -1,58 +1,58 @@
 <?php
  
-$lang['info_subtitle'] = "Tu visita";
-$lang['info_title'] = "información";
+$lang['info_subtitle'] = "Your visit";
+$lang['info_title'] = "information";
 
-$lang['info_text01'] = "La venta de entradas se realiza exclusivamente vía online, a través de este sitio web.";
-$lang['info_text02'] = "Se recomienda a los visitantes llegar 10 minutos antes del turno reservado.";
+$lang['info_text01'] = "The sale of tickets can only be done online, through this website.";
+$lang['info_text02'] = "It is advisable that visitors arrive 10 minutes before the reservation.";
 $lang['info_text03'] = "<strong style='color: red'>A resolver la documentación que deberán llevar</strong>";
-$lang['info_text04'] = "La visita está pensada para mayores de 12 años.";
-$lang['info_text05'] = "Se sugiere usar ropa y calzado cómodos y evitar llevar grandes bolsos o mochilas.";
-$lang['info_text06'] = "Durante el recorrido guiado los visitantes deberán mantener el celular en silencio y respetar las indicaciones de cada estación respecto a las fotografías.";
-$lang['info_text07'] = "El tiempo estimado para realizar el recorrido interior es de 1.40 horas.";
-$lang['info_text08'] = "El recorrido exterior es gratuito y los visitantes podrán solicitar la asistencia de un guía institucional. El tiempo de duración aproximado es de 40 minutos.";
+$lang['info_text04'] = "The visit is recommended for people older than 12 years old.";
+$lang['info_text05'] = "It is advisable to wear comfortable clothes and shoes and to avoid big bags.";
+$lang['info_text06'] = "During the guided tour, visitors must keep their cellphones in silence and respect suggestions regarding pictures in each of the stations.";
+$lang['info_text07'] = "The internal tour lasts approximately 1.40 hs.";
+$lang['info_text08'] = "The external tour is free and the visitors will have the opportunity to be assisted by an institutional guide. The estimated time for this tour is 40 minutes.";
 
-$lang['como_llegar_subtitle'] = "Tu visita";
-$lang['como_llegar_title'] = "cómo llegar";
-$lang['como_llegar_text'] = "Los visitantes podrán llegar al Centro Ambiental utilizando su vehículo o los transportes del Ministerio de Turismo y Cultura de la Provincia. También será posible ir caminando o en bicicleta. Aparte, desde el Jardín de los Poetas hay una huella que conduce hasta el centro haciendo trekking o Mountain Bike.";
+$lang['como_llegar_subtitle'] = "Your visit";
+$lang['como_llegar_title'] = "how to get there";
+$lang['como_llegar_text'] = "Visitors will be able to get to the Environmental Center using their own vehicle or the transport provided by the Ministry of Tourism and Culture of the Province. Visitors can also reach the place by walking or by bike. In addition, doing trekking or using mountain bike are also options to reach the Center from the path starting from the Jardín de los Poetas.";
 
-$lang['como_llegar_auto'] = "En auto";
-$lang['como_llegar_auto_text'] = "Tres recorridos diferentes partiendo desde el Centro Cívico, con una duración aproximada de 30 minutos.";
+$lang['como_llegar_auto'] = "By car";
+$lang['como_llegar_auto_text'] = "Three different routes starting from the Civic Center, with an estimated journey of 30 minutes";
 
-$lang['como_llegar_auto_conector'] = "Por Conector Sur";
-$lang['como_llegar_auto_conector_text'] = "Seguir la cartelería de indicación color azul.";
-$lang['como_llegar_auto_conector_cta'] = "Ver ruta en Google Maps";
+$lang['como_llegar_auto_conector'] = "By Conector Sur";
+$lang['como_llegar_auto_conector_text'] = "Follow the blue signs.";
+$lang['como_llegar_auto_conector_cta'] = "Google Maps";
 
 $lang['como_llegar_auto_meglioli'] = "Por Meglioli";
-$lang['como_llegar_auto_meglioli_text'] = "Seguir la cartelería de indicación color azul.";
-$lang['como_llegar_auto_meglioli_cta'] = "Ver ruta en Google Maps";
+$lang['como_llegar_auto_meglioli_text'] = "Follow the blue signs";
+$lang['como_llegar_auto_meglioli_cta'] = "Google Maps";
 
 $lang['como_llegar_auto_moron'] = "Por Morón:";
-$lang['como_llegar_auto_moron_text'] = "Seguir la cartelería de indicación color azul.";
-$lang['como_llegar_auto_moron_cta'] = "Ver ruta en Google Maps";
+$lang['como_llegar_auto_moron_text'] = "Follow the blue signs";
+$lang['como_llegar_auto_moron_cta'] = "Google Maps";
 
-$lang['como_llegar_bici'] = "Bicicleta o caminata";
-$lang['como_llegar_bici_text'] = "Desde la ciudad de San Juan hasta el Centro Ambiental Anchipurac. Duración aproximada: 50 minutos en bicicleta y 3 horas caminando.";
-$lang['como_llegar_bici_cta'] = "Ver ruta en Google Maps";
+$lang['como_llegar_bici'] = "Bike or walking";
+$lang['como_llegar_bici_text'] = "From the city of San Juan until Centro Ambiental Anchipurac: Estimated length: 50 minutes by bike and 3 hours walking.";
+$lang['como_llegar_bici_cta'] = "Google Maps";
 
 $lang['como_llegar_mtb'] = "Mountain Bike y trekking ";
-$lang['como_llegar_mtb_text'] = "A través del Cerro Parkinson, desde el Jardín de los Poetas, siguiendo la huella hasta al Centro Ambiental Anchipurac.";
-$lang['como_llegar_mtb_cta'] = "Ver ruta en Google Maps";
+$lang['como_llegar_mtb_text'] = "Through Cerro Parkinson, from the Jardín de los Poetas, following the path to Centro Ambiental Anchipurac.";
+$lang['como_llegar_mtb_cta'] = "Google Maps";
 
 
-$lang['date_subtitle'] = "Tu visita";
-$lang['date_title'] = "días y horarios";
+$lang['date_subtitle'] = "Your visit";
+$lang['date_title'] = "days and times";
 $lang['date_text01'] = "<strong>Invierno (hasta el 30 de  Junio)</strong>";
 $lang['date_text02'] = "Lunes a viérnes de 8:30 hs. a 18:30 hs.";
 $lang['date_text03'] = "Sábado y domingo de 9:00 hs.  a 18:00 hs.";
 
-$lang['tickets_subtitle'] = "Tu visita";
-$lang['tickets_title'] = "reserva de tickets";
-$lang['tickets_text'] = "Viví la experiencia Anchipurac a tu medida, de manera individual, con tu familia, amigos o escuela. Para realizar la visita deberás registrar tus datos y reservar un turno exclusivamente a traves de este sitio.";
-$lang['tickets_cta'] = "Comprá tu ticket aquí";
+$lang['tickets_subtitle'] = "Your visit";
+$lang['tickets_title'] = "tickets reservation";
+$lang['tickets_text'] = "Live the Anchipurac experience as you wish, individually, with your family, your friends or your educational institution. To make the tour you will have to register your information and reserve an appointment exclusively through this website.";
+$lang['tickets_cta'] = "Buy your ticket here";
 
-$lang['medios_subtitle'] = "Tu visita";
-$lang['medios_title'] = "medios de pago";
+$lang['medios_subtitle'] = "Your visit";
+$lang['medios_title'] = "means of payment";
 
 
 ?>
